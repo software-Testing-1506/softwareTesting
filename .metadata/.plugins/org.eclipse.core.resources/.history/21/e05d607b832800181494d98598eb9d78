@@ -1,0 +1,1 @@
+Manifest-Version: 1.0 Main-Class: newlei.java Class-Path: lib\resources.jar lib\rt.jar lib\jsse.jar lib\jce.jar lib\charsets.jar lib\jfr.jar lib\access-bridge-64.jar lib\cldrdate.jar lib\dnsns.jar lib\jaccess.jar lib\jfxrt.jar lib\localedata.jar lib\nashorn.jat lib\sunec.jar lib\sunjce_provider.jar lib\sunmscapi.jar lib\sunpkcs11.jar lib\zipfs.jar Created-By: qi da
