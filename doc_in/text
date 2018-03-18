@@ -1,2 +1,4 @@
 name:javaforcednote
-	entercount:23	wordcount:137
+	wordcount:137	entercount:23
+name:checkword
+	symbolcount:4	wordcount:7	entercount:1

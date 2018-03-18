@@ -54,7 +54,7 @@ class doc {
 				entercount +=1;
 			}
 			else if(isword(temp)&&!isnum(temp)){
-				isaword = true;
+					isaword = true;
 			}
 			else if(isChinese(temp)){
 				wordcount+=1;
@@ -71,8 +71,9 @@ class doc {
 					symbolcount +=1;
 				}
 			}
+				
 		}
-		wordcount = isaword?wordcount+1:wordcount;
+		if(isaword) wordcount +=1;
 	}
 
 }

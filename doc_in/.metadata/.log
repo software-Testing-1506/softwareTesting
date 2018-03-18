@@ -1,0 +1,10 @@
+!SESSION 2018-03-19 02:20:34.385 -----------------------------------------------
+eclipse.buildId=M20130204-1200
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product com.android.ide.eclipse.adt.package.adtproduct -product com.android.ide.eclipse.adt.package.adtproduct
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.android.ide.eclipse.adt.package.adtproduct -data C:\Users\lenovo\Desktop\大三下\软件测试\CC\doc_in -product com.android.ide.eclipse.adt.package.adtproduct
+
+!ENTRY org.eclipse.ui 2 2 2018-03-19 02:21:12.891
+!MESSAGE Invalid property category path: ValidationPropertiesPage (bundle: org.eclipse.wst.xml.ui, propertyPage: org.eclipse.wst.xml.ui.propertyPage.project.validation)

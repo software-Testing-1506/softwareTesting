@@ -50,13 +50,14 @@ class doc {
 			//单词数 ，如果是汉语呢，那应该是一个字是一个词咯？
 		for(int i =0;i<text.length();++i){
 			char temp = text.charAt(i);
-			if(temp=='\n'){
+			if(temp=='\n')
 				entercount +=1;
+			if(isword(temp)){
+				if(!isnum(temp)){
+					isaword = true;
+				}
 			}
-			else if(isword(temp)&&!isnum(temp)){
-				isaword = true;
-			}
-			else if(isChinese(temp)){
+			if(isChinese(temp)){
 				wordcount+=1;
 				if(isaword)
 					wordcount +=1;
@@ -71,8 +72,9 @@ class doc {
 					symbolcount +=1;
 				}
 			}
+				
 		}
-		wordcount = isaword?wordcount+1:wordcount;
+		if(isaword) wordcount +=1;
 	}
 
 }

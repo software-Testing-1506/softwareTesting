@@ -22,14 +22,13 @@ class doc {
 	public String  mes(){
 		String message= "name:"+name+"\n";
 		if(temp[2] ==true)
-			message +="\tsymbolcount:"+symbolcount;
+			message +="\tsymbolcount:"+symbolcount+"\n";
 		
 		if(temp[1] == true)
 			message +="\twordcount:"+wordcount;
 		
 		if(temp[0]==true)
 			message +="\tentercount:"+entercount;
-		
 		return message;
 	}
 	public static boolean isChinese(char c) {  
@@ -42,21 +41,22 @@ class doc {
 	    return (c>='0'&&c<='9');  
 	}
 	public static boolean issymbol(char c){
-		return !(isChinese(c)||isword(c));
+		return !(isChinese(c)||isword(c)||(c=='\n'));
 	}
 	private void cal(){
 		boolean isaword = false;
 			//多少行是指的多少回车吗
 			//单词数 ，如果是汉语呢，那应该是一个字是一个词咯？
-		for(int i =0;i<text.length();++i){
+		for(int i =0;i<text.length();i++){
 			char temp = text.charAt(i);
-			if(temp=='\n'){
+			if(temp=='\n')
 				entercount +=1;
+			if(isword(temp)){
+				if(!isnum(temp)){
+					isaword = true;
+				}
 			}
-			else if(isword(temp)&&!isnum(temp)){
-				isaword = true;
-			}
-			else if(isChinese(temp)){
+			if(isChinese(temp)){
 				wordcount+=1;
 				if(isaword)
 					wordcount +=1;
@@ -71,12 +71,12 @@ class doc {
 					symbolcount +=1;
 				}
 			}
+				
 		}
-		wordcount = isaword?wordcount+1:wordcount;
+		if(isaword) wordcount +=1;
 	}
 
 }
-
 class outdoc {
 	String name;
 	ArrayList children =new ArrayList();
@@ -89,7 +89,7 @@ public class newlei {
 	/**
 	 * @param args
 	 */
-	//final char[] para1= {'c','w','l'}; 
+	final char[] para= {'c','w','l'}; 
 	public static boolean createFile(String filePath){
 		boolean result = false;
 		File file = new File(filePath);
@@ -176,7 +176,7 @@ public class newlei {
 					}
 					String s="";
 					for(int index =0;index<outdocarr.children.size();index++)
-						s += ((doc) (outdocarr.children.get(index))).mes()+"\n";
+						s += ((doc) (outdocarr.children.get(index))).mes();
 					writeFileByChars(file,s);										//write into the file
 
 					//code outputfile code here

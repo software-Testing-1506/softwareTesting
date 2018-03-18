@@ -7,6 +7,6 @@
 <listEntry value="1"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="newlei"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-c -w  javaforcednote -o text"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-c -w  javaforcednote checkword -o text"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="doc_in"/>
 </launchConfiguration>
