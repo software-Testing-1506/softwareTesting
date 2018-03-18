@@ -3,6 +3,7 @@ tiny trial with java
 a tiny word-count tool,just for trick.
 
 How to use the elegant tiny QC?
+
   open your cmd and cd to the folder having Conder.exe.
   code in 
     Conder.exe [parameter] [input_file_name] [parameter] [output_file_name]
