@@ -8,6 +8,8 @@ How to use the elegant tiny QC?
 
 + new -a parameter meaning new function counting codeline,nullline and balaline
 
+original readme:
+
   open your cmd and cd to the folder with Conder.exe.
   
   and code in 
