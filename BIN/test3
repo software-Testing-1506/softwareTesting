@@ -1,0 +1,23 @@
+java文件操作
+	创建文件
+		public static boolean createFile(String filePath){  
+		    boolean result = false;  
+		    File file = new File(filePath);  
+		    if(!file.exists()){  
+		        try {  
+		            result = file.createNewFile();  
+		        } catch (IOException e) {  
+		            e.printStackTrace();  
+		        }  
+		    }  
+		      
+		    return result;  
+		}  
+	创建文件夹..
+	删除文件...
+	删除文件夹..
+	读文件
+		a. 以字节为单位 读取文件，用于读二进制文件， （图片声音视频）
+		b. 以字符为单位 读取文件，读文本，数字等类型的文件，支持中文
+			InputStreamReader 是字节流通向字符流的桥梁：它使用指定的 charset 读取字节并将其解码为字符
+			

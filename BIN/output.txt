@@ -1,0 +1,18 @@
+name:3201.jar
+	symbolcount:5387	wordcount:1242	linecount:33
+name:CONDER.exe
+	symbolcount:297803	wordcount:67876	linecount:1119
+name:output.txt
+	symbolcount:16	wordcount:12	linecount:5
+name:stoplist
+	symbolcount:4	wordcount:0	linecount:1
+name:test1.c
+	symbolcount:3	wordcount:3	linecount:3
+name:test2
+	symbolcount:41	wordcount:9	linecount:11
+name:test3
+	symbolcount:239	wordcount:137	linecount:23
+name:test4
+	symbolcount:13	wordcount:8	linecount:3
+name:test5.c
+	symbolcount:9	wordcount:3	linecount:5

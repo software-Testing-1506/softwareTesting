@@ -12,7 +12,9 @@ import java.util.ArrayList;
 class doc {
 	String name;
 	String text;
-	int linecount =1,wordcount = 0,symbolcount=0,codeline=0,nullline = 0,balaline =666;
+	String word="";
+	static String[] stoplist;
+	int linecount =1,allwordcount = 0,wordcount =0,symbolcount=0,codeline=0,nullline = 0,balaline =666;
 	boolean[] temp ={};
 	public doc(){}
 	public doc(String n,String t,boolean[] para){
@@ -47,6 +49,30 @@ class doc {
 	public static boolean issymbol(char c){
 		return !(isChinese(c)||isword(c));
 	}
+	private boolean isStop(String s){
+		word = "";
+		boolean isstop = false;
+		if(doc.stoplist == null)
+			return false;
+		for(String sp:doc.stoplist){
+			if(isequal(sp,s)){
+				isstop = true;
+				break;
+			}		
+		}
+		return isstop;
+	}
+	private boolean isequal(String sp, String s) {
+		// TODO Auto-generated method stub
+		if(sp.length() != s.length())
+			return false;
+		
+			for(int i=0;i<sp.length();i++){
+				if(sp.charAt(i)!=s.charAt(i))
+					return false;
+			}
+		return true;
+	}
 	private void cal(){
 		ArrayList linewords = new ArrayList();
 		ArrayList<String> line = new ArrayList<String>();
@@ -59,8 +85,8 @@ class doc {
 			char temp = text.charAt(i);
 			ts+=temp;
 			if(temp=='\n'){
-				linewords.add(wordcount-lineb);
-				lineb =wordcount;
+				linewords.add(allwordcount-lineb);
+				lineb =allwordcount;
 				linecount +=1;
 				line.add(ts);
 				ts="";
@@ -69,25 +95,34 @@ class doc {
 				isaword = true;
 			}
 			else if(isChinese(temp)){
-				wordcount+=1;
+				allwordcount+=1;
+				if(!isStop(""+temp));
+					wordcount+=1;
 				if(isaword)
+					allwordcount +=1;
+				if(isaword&&!isStop(word))
 					wordcount +=1;
 				isaword = false;
 			}
 			else if(issymbol(temp))
 			{
 				if(isaword)
+					allwordcount +=1;
+				if(isaword&&!isStop(word))
 					wordcount +=1;
 				isaword = false;
 				if(issymbol(temp)){
 					symbolcount +=1;
 				}
 			}
+			if(isaword)
+				word +=temp;
 		}
 		line.add(ts);
-		linewords.add(wordcount-lineb);
-		wordcount = isaword?wordcount+1:wordcount;
-		
+		linewords.add(allwordcount-lineb);
+		allwordcount = isaword?allwordcount+1:allwordcount;
+		if(isaword&&!isStop(word))
+			wordcount++;
 		/*for(int i=0;i<line.size();++i){			//solve the line problem
 			System.out.println(line.get(i));
 		}*/
@@ -222,16 +257,35 @@ public class newlei {
 	}
 	public static void main(String[] args)throws Exception {
 		// TODO Auto-generated method stub
-		boolean  isout = false;
+		boolean  isout = false,hassl = false;
+		int eind=-100;
 		boolean[] para= {true,true,true,false};
 		ArrayList parachar = new ArrayList();		//keep the load-in parameters in this arr
 		ArrayList<doc> docarr = new ArrayList<doc>();	//keep the unoutput-to-file doc
 		outdoc outdocarr = new outdoc();			//a pointer to the current outdoc
+		for(int i=0;i<args.length;i++){
+			if(args[i].charAt(0)=='-'&&args[i].charAt(1)=='e'){		//para is -e
+				if(args[i+1].charAt(0)=='-'||args[i+1].charAt(0)=='*')
+					throw new Exception("no filename after -e");
+				if(hassl ==true)
+					throw new Exception("already have a stoplist");
+				eind = i;						//pass the stoplist
+				hassl =true;
+				String stopstr = readFileByChars(args[i+1]);
+				String[] stoparr = stopstr.split(" ");
+				doc.stoplist = stoparr;
+			}
+		}
 		for(int i =0;i<args.length;i++){
+			if(hassl&&(i==eind||i==eind+1))			//pass the stoplist
+				continue;
 			if(args[i].charAt(0)=='-'){			//it's a parameter
 				if(args[i].length()!=2)
 					throw new Exception("a para after a -");
-				if(args[i].charAt(1)=='o'){	//参数是-o
+				if(args[i].charAt(1)=='e'){		//para is -e
+					throw new Exception("it shouldn't happen");
+				}
+				else if(args[i].charAt(1)=='o'){	//参数是-o
 					isout= true;
 					if(i-1<0)				//first param can't be -o
 						throw new Exception("-o as the first para");
@@ -254,7 +308,7 @@ public class newlei {
 				}
 			}
 			else if(args[i].charAt(0)=='*'){		 		//**********************
-				if(args[i].charAt(1)=='.'&&args[i].length()==2)
+				if(args[i].length()==1)
 				{
 					String[] filens = TraversalDir();
 					doc tempd = new doc();
@@ -272,7 +326,8 @@ public class newlei {
 					parachar.clear();
 						
 				}
-					
+				else if (args[i].charAt(1)=='.'&&args[i].length()==2)
+					throw new Exception("no such input *.");
 				//all files
 				else {			//get the *.* file 	need to identify
 					int len = args[i].length();
