@@ -6,6 +6,8 @@ How to use the elegant tiny QC?
 
 + no -s but directly typing \*.c or anything you like
 
++ new -a parameter meaning new function counting codeline,nullline and balaline
+
   open your cmd and cd to the folder with Conder.exe.
   
   and code in 
