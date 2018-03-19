@@ -3,14 +3,16 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+
 class doc {
 	String name;
 	String text;
-	int linecount =1,wordcount = 0,symbolcount=0,codeline=0,nullline = 0,balaline =0;
+	int linecount =1,wordcount = 0,symbolcount=0,codeline=0,nullline = 0,balaline =666;
 	boolean[] temp ={};
 	public doc(){}
 	public doc(String n,String t,boolean[] para){
@@ -29,12 +31,13 @@ class doc {
 		
 		if(temp[0]==true)
 			message +="\tlinecount:"+linecount;
-		
+		if(temp[3] == true)
+			message +="\tcodeline:"+codeline+"\tnullline:"+nullline+"\tbalaline:"+balaline;
 		return message;
 	}
 	public static boolean isChinese(char c) {  
 	    return c >= 0x4E00 &&  c <= 0x9FA5;// 根据字节码判断  
-	}  
+	}  	
 	public static boolean isword(char c) {  
 	    return (c>='A'&&c<='Z')||(c>='a'&&c<='z')||(c>='0'&&c<='9');  
 	}  
@@ -45,8 +48,10 @@ class doc {
 		return !(isChinese(c)||isword(c));
 	}
 	private void cal(){
+		ArrayList linewords = new ArrayList();
 		ArrayList<String> line = new ArrayList<String>();
 		String ts ="";
+		int lineb=0;
 		boolean isaword = false;
 			//多少行是指的多少回车吗
 			//单词数 ，如果是汉语呢，那应该是一个字是一个词咯？
@@ -54,6 +59,8 @@ class doc {
 			char temp = text.charAt(i);
 			ts+=temp;
 			if(temp=='\n'){
+				linewords.add(wordcount-lineb);
+				lineb =wordcount;
 				linecount +=1;
 				line.add(ts);
 				ts="";
@@ -77,12 +84,40 @@ class doc {
 				}
 			}
 		}
+		line.add(ts);
+		linewords.add(wordcount-lineb);
 		wordcount = isaword?wordcount+1:wordcount;
-		if(linecount ==1)
-			System.out.println(ts);
-		for(int i=0;i<line.size();++i){			//solve the line problem
+		
+		/*for(int i=0;i<line.size();++i){			//solve the line problem
 			System.out.println(line.get(i));
+		}*/
+		for(int i =0;i<linewords.size();i++){			//codeline,line and line you ***
+			if((int)linewords.get(i)>1){
+				codeline ++;
+			}else if(isnullline(line.get(i)))
+				nullline ++;
+			else if(iszhushi(line.get(i))){
+				balaline ++;
+			}
+				
 		}
+		
+	}
+	private boolean iszhushi(String string) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	private boolean isnullline(String str) {
+		// TODO Auto-generated method stub
+		boolean flag = false;
+		for(int i=0;i<str.length();i++){
+			if((!(str.charAt(i)==' '||str.charAt(i) =='\r'||str.charAt(i) =='\t'||str.charAt(i)=='\n'))&&!flag){
+				flag = true;
+			}else if((!(str.charAt(i)==' '||str.charAt(i) =='\r'||str.charAt(i) =='\t'||str.charAt(i)=='\n'))&&flag){
+				return false;
+			}
+		}
+		return true;
 	}
 
 }
@@ -100,6 +135,48 @@ public class newlei {
 	 * @param args
 	 */
 	//final char[] para1= {'c','w','l'}; 
+	public static String[]  TraversalDir(){
+		File file = new File(".");
+		/*try {
+			System.out.println(file.getCanonicalPath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		String[] fileList = file.list();		//get the filename in the dir
+		ArrayList<String> returnlist =new ArrayList<String>();
+		File[] fs = file.listFiles();
+		for(int i =0;i<fileList.length;++i){
+						//create the file handle in the dir by typing in one's name
+			if(fs[i].isFile()){
+				returnlist.add(fileList[i]);
+				//System.out.println(fileList[i]);
+			}
+		}
+		return (String[])returnlist.toArray(new String[0]);
+	}
+	public static String[]  TraversalDir(String suffix){
+		File file = new File(".");
+		try {
+			System.out.println(file.getCanonicalPath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		MyFilter filter = new MyFilter(suffix);
+		String[] fileList = file.list(filter);		//get the filename in the dir
+		ArrayList<String> returnlist =new ArrayList<String>();
+		File[] fs = file.listFiles(filter);
+		for(int i =0;i<fileList.length;++i){
+						//create the file handle in the dir by typing in one's name
+			if(fs[i].isFile()){
+				returnlist.add(fileList[i]);
+				System.out.println(fileList[i]);
+			}
+			
+		}
+		return (String[])returnlist.toArray(new String[0]);
+	}
 	public static boolean createFile(String filePath){
 		boolean result = false;
 		File file = new File(filePath);
@@ -146,7 +223,7 @@ public class newlei {
 	public static void main(String[] args)throws Exception {
 		// TODO Auto-generated method stub
 		boolean  isout = false;
-		boolean[] para= {true,true,true};
+		boolean[] para= {true,true,true,false};
 		ArrayList parachar = new ArrayList();		//keep the load-in parameters in this arr
 		ArrayList<doc> docarr = new ArrayList<doc>();	//keep the unoutput-to-file doc
 		outdoc outdocarr = new outdoc();			//a pointer to the current outdoc
@@ -176,6 +253,46 @@ public class newlei {
 					parachar.add(args[i].charAt(1));
 				}
 			}
+			else if(args[i].charAt(0)=='*'){		 		//**********************
+				if(args[i].charAt(1)=='.'&&args[i].length()==2)
+				{
+					String[] filens = TraversalDir();
+					doc tempd = new doc();
+					for(int index = 0;index<filens.length;index++){
+						if(parachar.size() ==0){
+							 tempd= new doc(filens[index],readFileByChars(filens[index]),para);	
+						}
+						else{
+							boolean[] x = getpara(parachar);		//get a boolean arr by judging the paraarr
+							tempd= new doc(filens[index],readFileByChars(filens[index]),x);	//set an obj and clear the parachar	
+						}	
+						docarr.add(tempd);
+						System.out.println(tempd.mes());		//print the result
+					}
+					parachar.clear();
+						
+				}
+					
+				//all files
+				else {			//get the *.* file 	need to identify
+					int len = args[i].length();
+					String suffix = args[i].substring(1,len);
+					String[] filens = TraversalDir(suffix);
+					doc tempd = new doc();
+					for(int index = 0;index<filens.length;index++){
+						if(parachar.size() ==0){
+							 tempd= new doc(filens[index],readFileByChars(filens[index]),para);	
+						}
+						else{
+							boolean[] x = getpara(parachar);		//get a boolean arr by judging the paraarr
+							tempd= new doc(filens[index],readFileByChars(filens[index]),x);	//set an obj and clear the parachar	
+						}	
+						docarr.add(tempd);
+						System.out.println(tempd.mes());		//print the result
+					}
+					parachar.clear();
+				}
+			}
 			else{				// a file input or output
 				if(isout){
 					outdocarr.name = args[i];		//change type?
@@ -196,11 +313,9 @@ public class newlei {
 						 tempd= new doc(args[i],readFileByChars(args[i]),para);	
 					}
 					else{
-						for(int index=0;index<parachar.size();index++){
 						boolean[] x = getpara(parachar);		//get a boolean arr by judging the paraarr
 						parachar.clear();
-						tempd= new doc(args[i],readFileByChars(args[i]),x);	//set an obj and clear the parachar	
-						}	
+						tempd= new doc(args[i],readFileByChars(args[i]),x);	//set an obj and clear the parachar		
 					}
 					docarr.add(tempd);
 					System.out.println(tempd.mes());		//print the result
@@ -208,9 +323,18 @@ public class newlei {
 		}
 	}
 }
+	 static class MyFilter implements FilenameFilter{  
+	        private String type;  
+	        public MyFilter(String type){  
+	            this.type = type;  
+	        }  
+	        public boolean accept(File dir,String name){  
+	            return name.endsWith(type);  
+	        }  
+	    }  
 	private static boolean[] getpara(ArrayList parachar) throws Exception{
 		// TODO Auto-generated method stub
-		boolean[] t ={false,false,false};
+		boolean[] t ={false,false,false,false};
 		for(int index=0;index<parachar.size();index++){
 			switch ((char)(parachar.get(index))){
 			case 'c':
@@ -221,6 +345,9 @@ public class newlei {
 				break;
 			case 'l':
 				t[2] =true;
+				break;
+			case 'a':
+				t[3] = true;
 				break;
 			default:
 				throw new Exception("not exist such para");
