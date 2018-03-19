@@ -4,6 +4,12 @@ a tiny word-count tool,just for trick.
 
 How to use the elegant tiny QC?
 
++ no -s but directly typing \*.c or anything you like
+
++ new -a parameter meaning new function counting codeline,nullline and balaline
+
+original readme:
+
   open your cmd and cd to the folder with Conder.exe.
   
   and code in 
