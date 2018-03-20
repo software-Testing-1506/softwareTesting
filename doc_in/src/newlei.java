@@ -245,8 +245,8 @@ public class newlei {
 	public static void writeFileByChars(File file,String mes) throws IOException{
 		BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file)); 
 		bufferedWriter.write(mes);
-		bufferedWriter.flush();// 清空缓冲区  
-        bufferedWriter.close();// 关闭输出流  
+		bufferedWriter.flush();// clear the buf   
+        bufferedWriter.close();// cut the stream
 	}
 	public static void main(String[] args)throws Exception {
 		// TODO Auto-generated method stub

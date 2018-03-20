@@ -1,2 +1,2 @@
-name:x.c
-	symbolcount:9	wordcount:8	linecount:5
+name:test2
+	symbolcount:41	wordcount:9	linecount:11
