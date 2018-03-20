@@ -12,6 +12,8 @@ How to use the elegant tiny QC(wc?ok)
 
 + new the output outputs to ouput.txt default but you can design it yourself by -o
 
++ the word in stoplist should be splited by space if you really want it works
+
 original readme:
 
   open your cmd and cd to the folder with Conder.exe.
