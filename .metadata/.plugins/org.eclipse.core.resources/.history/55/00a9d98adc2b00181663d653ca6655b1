@@ -1,0 +1,19 @@
+
+public class boxtest {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String[]a = {"javaforcednote"};
+		try {
+			newlei.main(a);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

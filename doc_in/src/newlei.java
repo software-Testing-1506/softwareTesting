@@ -192,12 +192,6 @@ public class newlei {
 	}
 	public static String[]  TraversalDir(String suffix){
 		File file = new File(".");
-		try {
-			System.out.println(file.getCanonicalPath());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		MyFilter filter = new MyFilter(suffix);
 		String[] fileList = file.list(filter);		//get the filename in the dir
 		ArrayList<String> returnlist =new ArrayList<String>();
@@ -206,7 +200,6 @@ public class newlei {
 						//create the file handle in the dir by typing in one's name
 			if(fs[i].isFile()){
 				returnlist.add(fileList[i]);
-				System.out.println(fileList[i]);
 			}
 			
 		}
@@ -296,12 +289,7 @@ public class newlei {
 						throw new Exception("no filename after||before -o");
 					if(docarr.size()==0)				//has to have at least one filename message
 						throw new Exception("no file message to write!");
-					outdoc tempo  =new outdoc();
-					for(int index =0;index<docarr.size();index++){	//
-						tempo.children.add(docarr.get(index));
-					}
 					docarr.clear();
-					outdocarr = tempo;
 				}
 				else{						//参数不是-o
 					parachar.add(args[i].charAt(1));
@@ -321,6 +309,7 @@ public class newlei {
 							tempd= new doc(filens[index],readFileByChars(filens[index]),x);	//set an obj and clear the parachar	
 						}	
 						docarr.add(tempd);
+						outdocarr.children.add(tempd);
 						System.out.println(tempd.mes());		//print the result
 					}
 					parachar.clear();
@@ -343,6 +332,7 @@ public class newlei {
 							tempd= new doc(filens[index],readFileByChars(filens[index]),x);	//set an obj and clear the parachar	
 						}	
 						docarr.add(tempd);
+						outdocarr.children.add(tempd);
 						System.out.println(tempd.mes());		//print the result
 					}
 					parachar.clear();
@@ -373,9 +363,19 @@ public class newlei {
 						tempd= new doc(args[i],readFileByChars(args[i]),x);	//set an obj and clear the parachar		
 					}
 					docarr.add(tempd);
+					outdocarr.children.add(tempd);
 					System.out.println(tempd.mes());		//print the result
 			}	
 		}
+			if(i==args.length-1&&outdocarr.children.size()!=0)
+			{
+				String outputstr="";
+				File file = new File("output.txt");
+				for(int index =0;index<outdocarr.children.size();index++)
+					outputstr += ((doc) (outdocarr.children.get(index))).mes()+"\n";
+				writeFileByChars(file,outputstr);										//write into the file
+				outdocarr.clear();		//clear the outdocarr's children
+			}
 	}
 }
 	 static class MyFilter implements FilenameFilter{  

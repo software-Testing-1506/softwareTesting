@@ -1,0 +1,28 @@
+
+public class boxtest {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String[] onefile = {"javaforcednote"};
+		String[] cwlonefile = {"-c","javaforcednote"};
+		String[] files = {"*"};
+		String[] suffixfiles = {"*.c"};
+		String[] afile = {"-a","javaforcednote"};
+		testmain(afile);
+
+	}
+
+	private static void testmain(String[] onefile) {
+		// TODO Auto-generated method stub
+		try {
+			newlei.main(onefile);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

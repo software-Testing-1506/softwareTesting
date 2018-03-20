@@ -1,0 +1,4 @@
+name:a.c
+	symbolcount:4	wordcount:6	linecount:2
+name:x.c
+	symbolcount:0	wordcount:1	linecount:1
