@@ -8,6 +8,8 @@ How to use the elegant tiny QC?
 
 + new -a parameter meaning new function counting codeline,nullline and balaline
 
++ new -e stoplist and the words containing by the stoplist won't be counted
+
 original readme:
 
   open your cmd and cd to the folder with Conder.exe.
