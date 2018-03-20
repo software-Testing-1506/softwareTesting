@@ -4,7 +4,7 @@ a tiny word-count tool,just for trick.
 
 How to use the elegant tiny QC(wc?ok)
 
-+ no -s but directly typing \*.c or anything you like
++ no -s but directly typing \*.c or anything you like,or just typing * to traversal all the files this dir
 
 + new -a parameter meaning new function counting codeline,nullline and balaline
 
