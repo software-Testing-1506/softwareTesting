@@ -23,7 +23,7 @@ public class boxtest {
 	private static void testmain(String[] onefile) {
 		// TODO Auto-generated method stub
 		try {
-			javarestore.main(onefile);
+			newlei.main(onefile);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

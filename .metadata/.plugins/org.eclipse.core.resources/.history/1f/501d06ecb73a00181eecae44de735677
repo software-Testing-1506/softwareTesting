@@ -1,0 +1,43 @@
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+
+public class javarestoreTest {
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@Test
+	public void testTraversalDir() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testTraversalDirString() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testCreateFile() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testReadFileByChars() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testWriteFileByChars() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testMain() {
+		fail("Not yet implemented");
+	}
+
+}

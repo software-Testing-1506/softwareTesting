@@ -551,3 +551,83 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jdt.core 4 4 2018-04-08 06:44:22.008
+!MESSAGE Background Indexer Crash Recovery
+!STACK 0
+java.lang.OutOfMemoryError: Requested array size exceeds VM limit
+	at org.eclipse.jdt.internal.compiler.util.HashtableOfObject.<init>(HashtableOfObject.java:38)
+	at org.eclipse.jdt.internal.core.index.DiskIndex.readCategoryTable(DiskIndex.java:643)
+	at org.eclipse.jdt.internal.core.index.DiskIndex.mergeCategory(DiskIndex.java:464)
+	at org.eclipse.jdt.internal.core.index.DiskIndex.mergeCategories(DiskIndex.java:456)
+	at org.eclipse.jdt.internal.core.index.DiskIndex.mergeWith(DiskIndex.java:550)
+	at org.eclipse.jdt.internal.core.index.Index.save(Index.java:198)
+	at org.eclipse.jdt.internal.core.search.indexing.IndexManager.saveIndex(IndexManager.java:807)
+	at org.eclipse.jdt.internal.core.search.indexing.IndexManager.saveIndexes(IndexManager.java:849)
+	at org.eclipse.jdt.internal.core.search.indexing.IndexManager.notifyIdle(IndexManager.java:569)
+	at org.eclipse.jdt.internal.core.search.processing.JobManager.run(JobManager.java:388)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.core.jobs 4 2 2018-04-08 06:53:58.747
+!MESSAGE An internal error occurred during: "Launching javarestoreTest".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate$ClasspathLocalizer.localURL(JUnitLaunchConfigurationDelegate.java:420)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate$ClasspathLocalizer.entryString(JUnitLaunchConfigurationDelegate.java:409)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate$ClasspathLocalizer.addEntry(JUnitLaunchConfigurationDelegate.java:396)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate$ClasspathLocalizer.localizeClasspath(JUnitLaunchConfigurationDelegate.java:387)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate.getClasspath(JUnitLaunchConfigurationDelegate.java:364)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate.launch(JUnitLaunchConfigurationDelegate.java:147)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:855)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:704)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1047)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1251)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.core.jobs 4 2 2018-04-08 06:54:11.944
+!MESSAGE An internal error occurred during: "Launching javarestoreTest".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate$ClasspathLocalizer.localURL(JUnitLaunchConfigurationDelegate.java:420)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate$ClasspathLocalizer.entryString(JUnitLaunchConfigurationDelegate.java:409)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate$ClasspathLocalizer.addEntry(JUnitLaunchConfigurationDelegate.java:396)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate$ClasspathLocalizer.localizeClasspath(JUnitLaunchConfigurationDelegate.java:387)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate.getClasspath(JUnitLaunchConfigurationDelegate.java:364)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate.launch(JUnitLaunchConfigurationDelegate.java:147)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:855)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:704)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1047)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1251)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.core.jobs 4 2 2018-04-08 07:04:54.174
+!MESSAGE An internal error occurred during: "Launching javarestoreTest".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate$ClasspathLocalizer.localURL(JUnitLaunchConfigurationDelegate.java:420)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate$ClasspathLocalizer.entryString(JUnitLaunchConfigurationDelegate.java:409)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate$ClasspathLocalizer.addEntry(JUnitLaunchConfigurationDelegate.java:396)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate$ClasspathLocalizer.localizeClasspath(JUnitLaunchConfigurationDelegate.java:387)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate.getClasspath(JUnitLaunchConfigurationDelegate.java:364)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate.launch(JUnitLaunchConfigurationDelegate.java:147)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:855)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:704)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1047)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1251)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.core.jobs 4 2 2018-04-08 07:04:58.656
+!MESSAGE An internal error occurred during: "Launching javarestoreTest".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate$ClasspathLocalizer.localURL(JUnitLaunchConfigurationDelegate.java:420)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate$ClasspathLocalizer.entryString(JUnitLaunchConfigurationDelegate.java:409)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate$ClasspathLocalizer.addEntry(JUnitLaunchConfigurationDelegate.java:396)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate$ClasspathLocalizer.localizeClasspath(JUnitLaunchConfigurationDelegate.java:387)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate.getClasspath(JUnitLaunchConfigurationDelegate.java:364)
+	at org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate.launch(JUnitLaunchConfigurationDelegate.java:147)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:855)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:704)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1047)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1251)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
