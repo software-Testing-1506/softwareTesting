@@ -10,4 +10,5 @@
 <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
 <fullyQualifiedTypeName name="java.io.FileWriter"/>
 <fullyQualifiedTypeName name="java.io.FilenameFilter"/>
+<fullyQualifiedTypeName name="org.junit.Assert"/>
 </qualifiedTypeNameHistroy>

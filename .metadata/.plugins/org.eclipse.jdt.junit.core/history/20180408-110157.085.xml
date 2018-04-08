@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="javarestoreTest" project="doc_in" tests="10" started="10" failures="0" errors="0" ignored="0">
+  <testsuite name="javarestoreTest" time="0.033">
+    <testcase name="testTraversalDirWithSuffix1" classname="javarestoreTest" time="0.0"/>
+    <testcase name="testTraversalDirWithSuffix2" classname="javarestoreTest" time="0.0"/>
+    <testcase name="testTraversalDirWithSuffix3" classname="javarestoreTest" time="0.0"/>
+    <testcase name="testTraversalDirWithSuffix4" classname="javarestoreTest" time="0.001"/>
+    <testcase name="testTraversalDirWithSuffix5" classname="javarestoreTest" time="0.002"/>
+    <testcase name="testfileopen" classname="javarestoreTest" time="0.003"/>
+    <testcase name="testTraversalDir" classname="javarestoreTest" time="0.003"/>
+    <testcase name="testPrint1" classname="javarestoreTest" time="0.003"/>
+    <testcase name="testPrint2" classname="javarestoreTest" time="0.009"/>
+    <testcase name="testPrint3" classname="javarestoreTest" time="0.012"/>
+  </testsuite>
+</testrun>

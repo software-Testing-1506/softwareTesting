@@ -20,6 +20,10 @@ public class boxtest {
 
 	}
 
+	/*private static void ASSERT(String mes,){
+		
+		
+	}*/
 	private static void testmain(String[] onefile) {
 		// TODO Auto-generated method stub
 		try {

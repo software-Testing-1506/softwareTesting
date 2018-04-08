@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="javarestoreTest" project="doc_in" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="javarestoreTest" time="0.001">
+    <testcase name="testPrint" classname="javarestoreTest" time="0.0"/>
+    <testcase name="testfileopen" classname="javarestoreTest" time="0.0"/>
+    <testcase name="testTraversalDirWithSuffix" classname="javarestoreTest" time="0.0"/>
+    <testcase name="testTraversalDir" classname="javarestoreTest" time="0.0"/>
+  </testsuite>
+</testrun>

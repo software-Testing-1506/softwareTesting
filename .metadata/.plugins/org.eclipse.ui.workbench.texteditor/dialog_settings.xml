@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="children.add" key="selection"/>
+		<item value="print" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="children.add"/>
-			<item value="docarr.add"/>
-			<item value="outdocarr.clear()"/>
-			<item value="outdocarr"/>
-			<item value="System.out.println"/>
-			<item value="ts"/>
-			<item value="isstop"/>
-			<item value="main"/>
+			<item value="print"/>
+			<item value="fileout"/>
+			<item value="writeFile"/>
+			<item value="write"/>
+			<item value="println"/>
+			<item value="print."/>
+			<item value="tostring"/>
+			<item value="outdocmes"/>
 		</list>
 		<list key="replacehistory">
 			<item value="allwordcount"/>
