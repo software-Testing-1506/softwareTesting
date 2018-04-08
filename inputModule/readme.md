@@ -1,6 +1,6 @@
 # 软件质量测试wordCount说明
 
-### 项目github地址[wordCount](https://github.com/chenmo1996/wordCount)
+### 项目github地址[wordCount](https://github.com/chenmo1996/wordCount/tree/master/test2)
 
 ### PSP表格
 
