@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # QWordCount
 tiny trial with java
 a tiny word-count tool,just for trick.
@@ -35,3 +36,6 @@ original readme:
   test it by taking LICENSE as input_file_name or your added new files
    
 At last,any questions by sending email to simonqidaa@gmail.com please.
+=======
+# softwareTesting
+>>>>>>> be45b5a99ac41b7f1bf3bac3c7cebe9c82b68852
